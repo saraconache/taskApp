@@ -7,11 +7,12 @@
 </nav>
 <div class="container">
   <form>
-      <input type="text" id="taskInfo" [(ngModel)]="newTaskName" name="newTaskName" placeholder="New Task">
-      <input type="text" name="newTaskDescription" placeholder="Description">
-      <input type="time" name="newTaskTime">
-      <button (click)="addTask(newTaskName)">Add</button>
-  </form>    
+      <input type="text" id="taskInfo"name="taskName" placeholder="New Task">
+      <input type="text"  name="taskDescription" placeholder="Description">
+      <input type="text" name="tastStatus">
+      <input type="time"  name="taskTime">
+      <button (click)="addTask(aTask)">Add</button>
+  </form>  
 
     <table class="table table-hover">
         <thead>
@@ -24,14 +25,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let task of tasks">
+          <tr *ngFor="let task of taskList">
             <th scope="row">1</th>
-            <td>{{task}} </td>
-            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. </td>
+            <td>{{task.title}} </td>
+            <td>{{task.description}}</td>
             <td>
                     <div class="btn-group">
                             <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Planning
+                                {{task.status}}
                             </button>
                             <div class="dropdown-menu">
                             <a class="dropdown-item" href="#">Planning</a>
@@ -40,7 +41,7 @@
                             </div>
                     </div>
             </td>
-            <td>3:15</td>
+            <td>{{task.time}}</td>
           </tr>
        
         </tbody>
