@@ -9,32 +9,32 @@ export class AppComponent {
   title = 'taskApp';
   
 
-  newTaskName = '';
- 
-  taskOne = {
-    title : 'clean bathroom',
-    description: 'clean up day',
-    status: 'in-progress',
-    time: 0
-  };
-  
-  taskTwo= {
-    title : 'finish essay',
-    description: 'production company',
-    status: 'completed',
-    time: 0
-  };
-  taskThree = {
-    title : 'do yoga',
-    description: 'go tot he par',
+  // newTaskName = '';
+  newTask = {
+    title : 'Clean',
+    description: 'House choress today',
     status: 'planning',
-    time: 0
+    time: 5
   };
 
-  taskList = [ this.taskOne, this.taskTwo, this.taskThree];
+  taskList = [this.newTask];
 
-  addTask(item) {
-    this.taskList.push(item);
-    this.newTaskName = '';
+  addTask(titleTask, description, status, time) {
+    class Task {
+      title = '';
+      description = '';
+      status ='';
+      time =null;
+    
+      constructor(titleTask, description, status, time) {
+        this.title = titleTask;
+        this.description = description;
+        this.status = status;
+        this.time = time;
+      }
+    }
+    
+    let createTask = new Task(titleTask, description, status, time);
+    this.taskList.push(createTask);
   }
 }

@@ -6,13 +6,22 @@
     </button>
 </nav>
 <div class="container">
+
+
+
   <form>
-      <input type="text" id="taskInfo"name="taskName" placeholder="New Task">
-      <input type="text"  name="taskDescription" placeholder="Description">
-      <input type="text" name="tastStatus">
-      <input type="time"  name="taskTime">
-      <button (click)="addTask(aTask)">Add</button>
+      <input type="text" [(ngModel)]="titleTask" name="taskName" placeholder="New Task">
+      <input type="text" [(ngModel)]="description"  name="taskDescription" placeholder="Description">
+      <select class="custom-select" [(ngModel)]="status" name ="statusOptions" id="inputGroupSelect01">
+          <option selected>Choose...</option>
+          <option value="In-Progress">In-Progress</option>
+          <option value="Completed">Completed</option>
+          <option value="Planning">Planning</option>
+        </select>
+      <input type="time"  [(ngModel)]="time" name="taskTime">
+      <button class="btn btn-primary" (click)="addTask(titleTask, description, status, time)">Add</button>
   </form>  
+
 
     <table class="table table-hover">
         <thead>
