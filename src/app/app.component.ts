@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Task } from './task';
 
 @Component({
   selector: 'app-root',
@@ -8,36 +9,26 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'taskApp';
   
-
-  // task object default example
   newTask = {
+    title: '',
+    description: '',
+    status: '',
+    time: ''
+  }
+
+  // array of tasks
+  taskList = [{
     title : 'Clean Room',
     description: 'Must finish house chores.',
     status: 'Planning',
     time: '5:31'
-  };
-
-  // array of tasks
-  taskList = [this.newTask];
+  }];
 
   addTask(titleTask, description, status, time) {
-    class Task {
-      title = null;
-      description = null;
-      status =null;
-      time = null;
-    
-      constructor(titleTask, description, status, time) {
-        this.title = titleTask;
-        this.description = description;
-        this.status = status;
-        this.time = time;
-      }
-    }
     
     let createTask = new Task(titleTask, description, status, time);
     
-    if(createTask.title != null){ // prevent adding blank tasks
+    if(createTask.title != null){
       this.taskList.push(createTask);
     }
   }
