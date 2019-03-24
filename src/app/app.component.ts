@@ -22,7 +22,6 @@ export class AppComponent {
 
   addTask(titleTask, description, status, time) {
     class Task {
-      id = null;
       title = null;
       description = null;
       status =null;
@@ -43,8 +42,8 @@ export class AppComponent {
     }
   }
 
-  removeTask(currentTask){
-  // this.taskList
+  removeTask(selectedTask, index){
+  this.taskList.splice(index, 1);
   }
 
 
