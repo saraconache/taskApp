@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Task } from './task';
+import { TasksService } from './tasks.service';
 
 @Component({
   selector: 'app-root',
@@ -11,13 +12,12 @@ export class AppComponent {
   
   newTask = new Task();
 
-   // array of tasks with default
-   taskList = [{
-    title : 'Clean Room',
-    description: 'Must finish house chores.',
-    status: 'Planning',
-    time: '5:31'
-  }];
+  
+  taskList;  // Fake API service
+  constructor(service: TasksService){
+    this.taskList = service.getTasks();
+  }
+
 
   addTask(addTaskToList){ 
     if(this.newTask.title != null){
