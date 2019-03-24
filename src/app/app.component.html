@@ -1,56 +1,68 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">{{title}}</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<p>Time Stats
+<span class="badge badge-primary">In-Process 03:32</span>
+<span class="badge badge-secondary">Planning 2:25</span>
+<span class="badge badge-success">Completed 5:67</span></p>
 </nav>
 <div class="container">
 
-
-
+  <div class="jumbotron">
   <form>
-      <input type="text" [(ngModel)]="titleTask" name="taskName" placeholder="New Task">
-      <input type="text" [(ngModel)]="description"  name="taskDescription" placeholder="Description">
-      <select class="custom-select" [(ngModel)]="status" name ="statusOptions" id="inputGroupSelect01">
-          <option selected>Choose...</option>
-          <option value="In-Progress">In-Progress</option>
-          <option value="Completed">Completed</option>
-          <option value="Planning">Planning</option>
-        </select>
-      <input type="time"  [(ngModel)]="time" name="taskTime">
-      <button class="btn btn-primary" (click)="addTask(titleTask, description, status, time)">Add</button>
-  </form>  
+    <div class="row">
+        <div class="col-xs-12 col-md-5">
+            <input type="text" [(ngModel)]="titleTask" name="taskName" placeholder="New Task" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+            <input type="text" [(ngModel)]="description"  name="taskDescription" placeholder="Task Description" class="form-control">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+            <select class="custom-select" [(ngModel)]="status" name ="statusOptions" id="inputGroupSelect01" class="form-control" required>
+                <option selected>Choose Status</option>
+                <option value="In-Progress">In-Progress</option>
+                <option value="Completed">Completed</option>
+                <option value="Planning">Planning</option>
+              </select>
+        </div>
+        <div class="col-md-4">
+            <input type="time" [(ngModel)]="time" name="taskTime" class="form-control" required>
+        </div>
+        <div class="col-xs-4">
+            <button class="btn btn-primary" (click)="addTask(titleTask, description, status, time)">Add</button>
+        </div>
+      </div>
+    </form></div>
 
 
     <table class="table table-hover">
         <thead>
           <tr>
-            <th scope="col">ID</th>
             <th scope="col">Task Name</th>
             <th scope="col">Description</th>
             <th scope="col">Status</th>
             <th scope="col">Est. Time</th>
+            <th scope="col"><i class="material-icons">delete</i></th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let task of taskList">
-            <th scope="row">1</th>
             <td>{{task.title}} </td>
             <td>{{task.description}}</td>
             <td>
-                    <div class="btn-group">
-                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                {{task.status}}
-                            </button>
-                            <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Planning</a>
-                              <a class="dropdown-item" href="#">In-progress</a>
-                              <a class="dropdown-item" href="#">Completed</a>
-                            </div>
-                    </div>
+ 
+                <select class="custom-select" [(ngModel)]="task.status" [ngClass]="task.status" name ="statusOptions">
+                            <option selected>{{task.status}}</option>
+                            <option value="In-Progress">In-Progress </option>
+                            <option value="Completed">Completed </option>
+                            <option value="Planning">Planning</option>
+                          </select>
+
             </td>
             <td>{{task.time}}</td>
+            <td><button (click)="removeTask(currentTask)"> &#10005;</button></td>
           </tr>
        
         </tbody>

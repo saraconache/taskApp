@@ -1,0 +1,48 @@
+$inprocessColor: #007bff;
+$completedColor: #28a745;
+$planningColor: #6c757d;
+$coloredBgText: #fff;
+
+$mediumSpace: 0.5rem;
+
+.jumbotron{
+    padding:1rem;
+    margin: 1rem;
+    button{
+        margin: $mediumSpace;
+    }
+}
+.form-control{
+    margin: $mediumSpace;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-content:center;
+
+    p{
+        color: $coloredBgText;
+        margin: 0;
+        font-size: 0.9rem;
+    }
+    .badge{
+        padding:0.5rem;
+        margin: 0 0.5rem;
+    }
+}
+
+.In-Progress, .Completed, .Planning{
+    color: $coloredBgText;
+    border: 0;
+    width: auto;
+}
+.In-Progress{
+    background: $inprocessColor;
+}
+.Completed{
+    background: $completedColor;
+}
+.Planning{
+    background:$planningColor;
+}
