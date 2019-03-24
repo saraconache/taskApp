@@ -7,10 +7,11 @@ import { Task } from './task';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'taskApp';  
+  title = 'taskApp';
+  
   newTask = new Task();
 
-   // array of tasks with default task
+   // array of tasks with default
    taskList = [{
     title : 'Clean Room',
     description: 'Must finish house chores.',
@@ -27,6 +28,6 @@ export class AppComponent {
 
   removeTask(selectedTask, index){
     this.taskList.splice(index, 1);
-  }
+    }
 
 } // end App component
