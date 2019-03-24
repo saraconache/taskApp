@@ -22,11 +22,11 @@ export class AppComponent {
 
   addTask(titleTask, description, status, time) {
     class Task {
-      id = '';
-      title = '';
-      description = '';
-      status ='';
-      time = '';
+      id = null;
+      title = null;
+      description = null;
+      status =null;
+      time = null;
     
       constructor(titleTask, description, status, time) {
         this.title = titleTask;
@@ -34,16 +34,17 @@ export class AppComponent {
         this.status = status;
         this.time = time;
       }
-
     }
     
     let createTask = new Task(titleTask, description, status, time);
+    
+    if(createTask.title != null){ // prevent adding blank tasks
       this.taskList.push(createTask);
-
+    }
   }
 
   removeTask(currentTask){
-// this.taskList
+  // this.taskList
   }
 
 
