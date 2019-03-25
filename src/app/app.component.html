@@ -1,4 +1,3 @@
-<!--The content below is only a placeholder and can be replaced.-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">{{title}}</a>
     <p>Time Stats
@@ -28,8 +27,7 @@
             </select>
           </div>
           <div class="col-md-4 timePicker">
-                  <input type="number"  id="htime" [(ngModel)]="newTask.timeHour" name="time" tabindex="0" placeholder="00" > <span>:</span> <input type="number" [(ngModel)]="newTask.timeMin" id="mtime" name="time" placeholder="00" tabindex="0">
-            <!-- <input type="time" [(ngModel)]="newTask.time" name="taskTime" class="form-control" required> -->
+              <input type="number"  id="htime" [(ngModel)]="newTask.timeHour" name="time" tabindex="0" placeholder="HH" > <span>:</span> <input type="number" [(ngModel)]="newTask.timeMin" id="mtime" name="time" placeholder="MM" tabindex="0">
           </div>
           <div class="col-xs-4">
               <button class="btn btn-primary" (click)="addTask(newTask)">Add Task</button>
