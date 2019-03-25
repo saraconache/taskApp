@@ -2,9 +2,9 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">{{title}}</a>
     <p>Time Stats
-      <span class="badge badge-primary">In-Process {{taskList[0].timeHour + ' : '+ taskList[0].timeMin}}</span>
-      <span class="badge badge-secondary">Planning {{taskList[0].timeHour + ' : '+ taskList[0].timeMin}}</span>
-      <span class="badge badge-success">Completed {{taskList[0].timeHour + ' : '+ taskList[0].timeMin}}</span>
+      <span class="badge badge-primary">In-Progress {{getTotalHours('In-Progress')}}:{{getTotalMinutes('In-Progress')}}</span>
+      <span class="badge badge-secondary">Planning {{getTotalHours('Planning')}}:{{getTotalMinutes('Planning')}}</span>
+      <span class="badge badge-success">Completed {{getTotalHours('Completed')}}:{{getTotalMinutes('Completed')}}</span>
     </p>
   </nav>
   <div class="container">
